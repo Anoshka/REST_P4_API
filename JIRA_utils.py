@@ -3,7 +3,7 @@ from requests.auth import HTTPBasicAuth as http_auth
 import json
 
 class Jira:
-	def __init__(self, email, project="SSC", api_key="t02sR2UCyz1g4TcXREf69135"):
+	def __init__(self, email, project="SSC", api_key="t02sR2UCyz1g4TcXREf69135", link=""):
 		"""
 		initializes Jira object, sets up vars for auth 
 
@@ -11,6 +11,7 @@ class Jira:
 			email (str): users email address
 			project (str): 
 			api_key (str): Jira API key, set in web app
+   			link (str): atlassian link, such as https://www.companyname.atlassian.net 
 		returns:
 			None
 		"""
@@ -37,7 +38,7 @@ class Jira:
 
 		"""
 
-		url = "<enter atlassian link here>/rest/api/{}".format(url_ext)
+		url = "{}/rest/api/{}".format(link, url_ext)
 
 		headers = {
 			"Accept":"application/json" 
@@ -159,7 +160,7 @@ class Jira:
 			#gets all assignee info
 			field = item['fields']['assignee']
 			#creates link to issue		
-			link = "<enter atlassian link here>/browse/" + issue
+			link = "{}/browse/".format(link) + issue
 			#gets issue title
 			description = item['fields']['summary']
 			#gets priority e.g. highest
