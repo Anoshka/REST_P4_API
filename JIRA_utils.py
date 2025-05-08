@@ -37,7 +37,7 @@ class Jira:
 
 		"""
 
-		url = "https://shapeshiftersvfx.atlassian.net/rest/api/{}".format(url_ext)
+		url = "<enter atlassian link here>/rest/api/{}".format(url_ext)
 
 		headers = {
 			"Accept":"application/json" 
@@ -159,7 +159,7 @@ class Jira:
 			#gets all assignee info
 			field = item['fields']['assignee']
 			#creates link to issue		
-			link = "https://shapeshiftersvfx.atlassian.net/browse/" + issue
+			link = "<enter atlassian link here>/browse/" + issue
 			#gets issue title
 			description = item['fields']['summary']
 			#gets priority e.g. highest
